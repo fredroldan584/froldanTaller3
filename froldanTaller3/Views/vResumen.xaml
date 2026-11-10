@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="froldanTaller3.Views.vResumen"
+             Title="Datos del contacto">
+
+    <ContentPage.Resources>
+        <!-- Estilos explícitos: tienen x:Key y se aplican con Style="{StaticResource ...}" -->
+        <Style x:Key="estiloTitulo" TargetType="Label">
+            <Setter Property="TextColor" Value="SeaGreen" />
+            <Setter Property="FontSize" Value="22" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+        </Style>
+        <Style x:Key="estiloCampo" TargetType="Label">
+            <Setter Property="TextColor" Value="Orange" />
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+        <Style x:Key="estiloDato" TargetType="Label">
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="FontSize" Value="15" />
+        </Style>
+        <Style x:Key="estiloAporte" TargetType="Label">
+            <Setter Property="TextColor" Value="Red" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+        <Style x:Key="estiloBoton" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="SeaGreen" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="CornerRadius" Value="10" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+
+            <Image Source="uisrael.png" HeightRequest="80" />
+            <Label Text="RESUMEN DEL CONTACTO" Style="{StaticResource estiloTitulo}" />
+
+            <Grid ColumnDefinitions="150,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+                  RowSpacing="8" ColumnSpacing="10">
+
+                <Label Text="Tipo:" Grid.Row="0" Style="{StaticResource estiloCampo}" />
+                <Label x:Name="lblTipo" Grid.Row="0" Grid.Column="1" Style="{StaticResource estiloDato}" />
+
+                <Label Text="Identificación:" Grid.Row="1" Style="{StaticResource estiloCampo}" />
+                <Label x:Name="lblId" Grid.Row="1" Grid.Column="1" Style="{StaticResource estiloDato}" />
+
+                <Label Text="Nombres:" Grid.Row="2" Style="{StaticResource estiloCampo}" />
+                <Label x:Name="lblNombres" Grid.Row="2" Grid.Column="1" Style="{StaticResource estiloDato}" />
+
+                <Label Text="Apellidos:" Grid.Row="3" Style="{StaticResource estiloCampo}" />
+                <Label x:Name="lblApellidos" Grid.Row="3" Grid.Column="1" Style="{StaticResource estiloDato}" />
+
+                <Label Text="Fecha:" Grid.Row="4" Style="{StaticResource estiloCampo}" />
+                <Label x:Name="lblFecha" Grid.Row="4" Grid.Column="1" Style="{StaticResource estiloDato}" />
+
+                <Label Text="Correo:" Grid.Row="5" Style="{StaticResource estiloCampo}" />
+                <Label x:Name="lblCorreo" Grid.Row="5" Grid.Column="1" Style="{StaticResource estiloDato}" />
+
+                <Label Text="Salario:" Grid.Row="6" Style="{StaticResource estiloCampo}" />
+                <Label x:Name="lblSalario" Grid.Row="6" Grid.Column="1" Style="{StaticResource estiloDato}" />
+
+                <Label Text="Aporte IESS (9,45%):" Grid.Row="7" Style="{StaticResource estiloCampo}" />
+                <Label x:Name="lblAporte" Grid.Row="7" Grid.Column="1" Style="{StaticResource estiloAporte}" />
+            </Grid>
+
+            <Button Text="EXPORTAR A TXT" Style="{StaticResource estiloBoton}" Clicked="btnExportar_Clicked" />
+            <Button Text="REGRESAR" Style="{StaticResource estiloBoton}" BackgroundColor="Gray" Clicked="btnRegresar_Clicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

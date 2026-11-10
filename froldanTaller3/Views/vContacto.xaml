@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="froldanTaller3.Views.vContacto"
+             Title="Registro de contacto">
+
+    <ContentPage.Resources>
+        <!-- Estilos implícitos: sin x:Key, se aplican a todos los controles de ese tipo -->
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Orange" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+        <Style TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="#F2F4F8" />
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="PlaceholderColor" Value="Gray" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Orange" />
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="CornerRadius" Value="10" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+
+            <Image Source="uisrael.png" HeightRequest="90" />
+            <Label Text="Taller 3 - Registro de contactos" FontSize="22"
+                   FontAttributes="Bold" HorizontalOptions="Center" />
+
+            <Grid ColumnDefinitions="120,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+                  RowSpacing="10" ColumnSpacing="10">
+
+                <Label Text="Identificación:" Grid.Row="0" Grid.Column="0" />
+                <Picker x:Name="pkTipo" Grid.Row="0" Grid.Column="1" Title="Seleccione"
+                        SelectedIndexChanged="pkTipo_SelectedIndexChanged">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>CI</x:String>
+                            <x:String>RUC</x:String>
+                            <x:String>Pasaporte</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Label Text="Número:" Grid.Row="1" Grid.Column="0" />
+                <Entry x:Name="txtIdentificacion" Grid.Row="1" Grid.Column="1"
+                       Placeholder="Primero elija el tipo" TextChanged="txtIdentificacion_TextChanged" />
+
+                <Label Text="Nombres:" Grid.Row="2" Grid.Column="0" />
+                <Entry x:Name="txtNombres" Grid.Row="2" Grid.Column="1"
+                       Placeholder="Nombres" TextChanged="SoloLetras_TextChanged" />
+
+                <Label Text="Apellidos:" Grid.Row="3" Grid.Column="0" />
+                <Entry x:Name="txtApellidos" Grid.Row="3" Grid.Column="1"
+                       Placeholder="Apellidos" TextChanged="SoloLetras_TextChanged" />
+
+                <Label Text="Fecha:" Grid.Row="4" Grid.Column="0" />
+                <DatePicker x:Name="dpFecha" Grid.Row="4" Grid.Column="1" Format="dd/MM/yyyy" />
+
+                <Label Text="Correo:" Grid.Row="5" Grid.Column="0" />
+                <Entry x:Name="txtCorreo" Grid.Row="5" Grid.Column="1"
+                       Placeholder="correo@ejemplo.com" Keyboard="Email" />
+
+                <Label Text="Salario:" Grid.Row="6" Grid.Column="0" />
+                <Entry x:Name="txtSalario" Grid.Row="6" Grid.Column="1"
+                       Placeholder="Ej: 850.50" Keyboard="Numeric" TextChanged="txtSalario_TextChanged" />
+            </Grid>
+
+            <Button Text="VER CONTACTO" Clicked="btnVerContacto_Clicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
